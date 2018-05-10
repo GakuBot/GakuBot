@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>GakuBot Exhibit</title>
+
+  <!--<link rel="stylesheet" href="style.css"/>-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  nav{
+    border-radius: 5px;
+  }
+  </style>
+  <script></script>
+</head>
+
+<body>
+
+  <div class="container my-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../index.html">GakuBot</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../formulate/formulate.html">GakuBot Formulate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../apprentice/apprentice.html">GakuBot Apprentice</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../mimic/mimic.html">GakuBot Mimic</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="../exhibit/exhibit.html">GakuBot Exhibit <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container game-holder mb-3">
+    <div class="card">
+
+      <div class="w-100 m-auto">
+        <div id="canvas-container" class="canvas-container my-4">
+
+          <canvas id="cvs" width="500" height="400" style="height:400px; width:500px; margin:auto;"></canvas>
+
+          <div id="canvas-overlay" class="h-100">
+            <div class="card h-100">
+              <div class="card-header">
+                <h2>Gakubot Exhibit</h2>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">This is a machine learning game</h5>
+                <p class="card-text">One bot plays against another, and they should (theoretically) both get better as they play</p>
+              </div>
+              <div class="card-footer">
+                <a id="progress-button-load" class="btn btn-primary float-right text-white d-none ml-2 mb-1">Yes</a>
+                <a id="progress-button" class="btn btn-primary float-right text-white">Rules ▶</a>
+              </div>
+            </div>
+          </div>
+          <div id="continue-canvas-overlay" class="d-none h-100">
+            <div class="card h-100">
+              <div class="card-body">
+                <h4 id="post-game-message-title" class="card-title">Congratulations!</h4>
+                <p id="post-game-message" class="card-text">You won! Continue?</p>
+                <h5 id="post-game-results-title" class="card-text mt-4">Results:</h5>
+                <div id="post-game-results-holder">
+                  <div id="post-game-results-played" class="card-text">Played:</div>
+                  <div>
+                    <div id="post-game-results-won" class="result-text card-text">Won:</div>
+                    <div id="post-game-results-lost" class="result-text card-text text-right float-right">Lost:</div>
+                  </div>
+                  <div>
+                    <div id="post-game-results-won-bar" class="result-bar float-left"></div>
+                    <div id="post-game-results-lost-bar" class="result-bar float-right"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a id="play-again-button" class="btn btn-primary float-right text-white">Play</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 text-center container">
+        <h5 class="mt-3 mb-2">Want to know more?</h5>
+        <a href="../about.html#how-do-i-play" class="btn btn-outline-primary under-game-button mb-3">How to play</a><br>
+        <a href="../about.html#versions" class="btn btn-outline-secondary under-game-button mb-3">Other versions</a><br>
+        <a href="../about.html" class="btn btn-outline-secondary under-game-button mb-3">More info</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://wagenaartje.github.io/neataptic/cdn/1.4.7/neataptic.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script src="exhibit_genetic.js"></script>
+  <script src="../input.js"></script>
+  <script src="../living.js"></script>
+  <script src="../canvas.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

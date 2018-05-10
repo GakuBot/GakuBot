@@ -1,0 +1,110 @@
+body{
+  padding:0;
+  background-color:lightslategrey;
+}
+
+#cvs{
+  border-style: solid;
+  border-color: black;
+  border-radius:5px;
+}
+
+#cvs, #canvas-container{
+  width: 100%;
+}
+
+.card-body{
+  max-height:95%;
+  overflow: auto;
+}
+
+.card-text{
+  overflow: auto;
+}
+
+.btn{
+  min-width: 100px;
+}
+
+#canvas-container{
+  overflow:hidden;
+}
+
+.btn,
+.card-text{
+  font-size: 18px;
+}
+
+.card-title{
+  font-size: 22px;
+}
+
+#progress-button,
+#progress-button-load,
+#play-again-button,
+#return-button{
+  width: 45%;
+}
+
+.canvas-container{
+  position: relative;
+  display:block;
+  margin:auto;
+  height:400px;
+  width:500px;
+}
+
+#cvs, #canvas-overlay{
+  position: absolute;
+}
+
+#canvas-overlay{
+  background-color: white;
+  height:100%;
+  width:100%;
+}
+
+.result-text{
+  display: inline-block;
+  padding: 5px;
+  margin:0;
+  border-radius:5px;
+  width:50%;
+}
+
+.result-bar{
+  display: inline-block;
+  padding: 5px;
+  margin:0;
+  height:20px;
+  border-radius:5px;
+}
+
+#post-game-results-won-bar{
+  background-color: #00ba5d;
+}
+
+#post-game-results-lost-bar{
+  margin-left: -10px;
+  background-color: #e24848;
+}
+
+.under-game-button{
+  min-width:160px;
+}
+
+li.nav-item{
+  border-radius: 5px;
+  background-color: #e1e6ea;
+  margin: 5px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+li.nav-item.active{
+  background-color: #8899aa;
+}
+
+li.nav-item.active a.nav-link{
+  color: white !important;
+}

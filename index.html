@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>Gakubot</title>
+
+  <!--<link rel="stylesheet" href="style.css"/>-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+  #version-table{
+    box-sizing: border-box;
+  }
+
+  .columns {
+      float: left;
+      width: 25%;
+      padding: 8px;
+  }
+
+  .price {
+      list-style-type: none;
+      border: 1px solid #eee;
+      margin: 0;
+      padding: 0;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+  }
+
+  .price:hover {
+      box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+  }
+
+  .price .header {
+      background-color: darkslategrey;
+      color: white;
+      font-size: 25px;
+  }
+
+  .price li {
+      border-bottom: 1px solid #eee;
+      padding: 12px;
+      text-align: center;
+      vertical-align: middle;
+  }
+
+  .price .grey {
+      background-color: #eee;
+      font-size: 20px;
+  }
+
+  .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+  }
+
+  .strategy-row{
+    padding:8px;
+  }
+
+  .training-row{
+    padding: 8px;
+  }
+
+  nav{
+    border-radius: 5px;
+  }
+
+  @media only screen and (max-width: 768px) {
+      .columns {
+          width: 100%;
+      }
+  }
+  </style>
+  <script></script>
+</head>
+<body>
+  <div class="container my-3">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">GakuBot</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formulate/formulate.html">GakuBot Formulate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="apprentice/apprentice.html">GakuBot Apprentice</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="mimic/mimic.html">GakuBot Mimic</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="exhibit/exhibit.html">GakuBot Exhibit</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- Jumbotron Header -->
+  <div class="container">
+    <header class="jumbotron my-5">
+      <h1 class="display-3">Play and learn</h1>
+      <p class="lead">This is a machine learning experiment. <br> You play against the AI as it gets progressively better in a game of strategy and reactions.</p>
+      <a href="about.html#how-do-i-play" class="btn btn-primary btn-lg"> How to play </a>
+    </header>
+  </div>
+  <div class="container my-2">
+    <div class="card">
+      <div class="w-100 m-auto d-inline-block">
+        <div class="d-inline-block mx-4 my-3">
+          <div id="version-table">
+            <h2 style="text-align:center">Gakubot versions</h2>
+            <p style="text-align:center">Each version comes with its own unique way of training and testing itself.</p>
+            <div class="columns">
+              <ul class="price">
+                <li class="header px-0"> GakuBot <br> Formulate </li>
+                <li> Trains against itself </li>
+                <li class="training-row"> Plays against you </li>
+                <li class="strategy-row"> Training strategy: Survival of the fittest </li>
+                <li style="padding-left:0px; padding-right:0px; font-weight:bold;"> Play against an AI opponent </li>
+                <li> <a href="about.html#gb-formulate" class="btn">More Info</a> </li>
+                <li class="grey"><a href="formulate/formulate.html" class="btn btn-primary">Play</a></li>
+              </ul>
+            </div>
+
+            <div class="columns">
+              <ul class="price">
+                <li class="header px-0"> GakuBot <br> Apprentice </li>
+                <li> Trains against you </li>
+                <li class="training-row"> Plays against you </li>
+                <li class="strategy-row"> Training strategy: Survival of the fittest </li>
+                <li style="padding-left:0px; padding-right:0px; font-weight:bold;"> Learn how the AI trains </li>
+                <li> <a href="about.html#gb-apprentice" class="btn">More Info</a> </li>
+                <li class="grey"><a href="apprentice/apprentice.html" class="btn btn-primary">Play</a></li>
+              </ul>
+            </div>
+
+            <div class="columns">
+              <ul class="price">
+                <li class="header"> GakuBot <br> Mimic </li>
+                <li> Trains against you </li>
+                <li class="training-row"> Plays against you </li>
+                <li class="strategy-row"> Training strategy: Mimics your movements </li>
+                <li style="padding-left:0px; padding-right:0px; font-weight:bold;"> See the AI learn from you </li>
+                <li> <a href="about.html#gb-mimic" class="btn">More Info</a> </li>
+                <li class="grey"><a href="mimic/mimic.html" class="btn btn-primary">Play</a></li>
+              </ul>
+            </div>
+
+            <div class="columns">
+              <ul class="price">
+                <li class="header"> GakuBot <br> Exhibit </li>
+                <li> Trains against itself </li>
+                <li class="training-row" style="padding-left:0px; padding-right:0px;"> Plays against itself (visible)</li>
+                <li class="strategy-row"> Training strategy: Survival of the fittest </li>
+                <li style="padding-left:0px; padding-right:0px; font-weight:bold;"> See the AI play against itself </li>
+                <li> <a href="about.html#gb-exhibit" class="btn">More Info</a> </li>
+                <li class="grey"><a href="exhibit/exhibit.html" class="btn btn-primary">Play</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jumbotron Header -->
+  <div class="container">
+    <header class="jumbotron my-5" style="background-color: darkslategrey; color:white;">
+      <h1 class="display-3">About the game</h1>
+      <p class="lead">Find out more about how the AI of the game teach themselves how to play, and why this game is particularly interesting to apply an AI to.</p>
+      <a href="about.html" class="btn btn-primary btn-lg">Read more</a>
+    </header>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+</html>
