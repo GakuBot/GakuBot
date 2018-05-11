@@ -25,7 +25,7 @@ function Genetic(){
   screenYOffset: 0.8,
   evolutionIteration: 0,
   genomeIndex: 0,
-  numberOfEvolutionsEachRound: 150,
+  numberOfEvolutionsEachRound: 250,
   animationTimer: 0,
   timeLimit: 400,
   duelCounter: 0,
