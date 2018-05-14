@@ -172,4 +172,20 @@ var roundReady = function(){
   document.getElementById("progress-button").addEventListener("click", startRound);
 }
 
-//genetic.play();
+var trainComPlayHuman = function(){
+
+  if(genetic.evolutionIteration % (genetic.numberOfEvolutionsEachRound + 5) < genetic.numberOfEvolutionsEachRound){
+    genetic.live();
+    genetic.evolve();
+    genetic.evolutionIteration += 1;
+    drawProgressText(Math.round(100*(genetic.evolutionIteration % (genetic.numberOfEvolutionsEachRound + 5)) / (genetic.numberOfEvolutionsEachRound)));
+    let thisGenome = genetic;
+    setTimeout(trainComPlayHuman, 1);
+  }else if(genetic.evolutionIteration % (genetic.numberOfEvolutionsEachRound + 5) === genetic.numberOfEvolutionsEachRound){
+    roundReady();
+  }else{
+    genetic.evolutionIteration += 1;
+    genetic.userControlled = true;
+    genetic.play();
+  }
+};

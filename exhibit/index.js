@@ -103,6 +103,22 @@ document.getElementById("progress-button").addEventListener("click", function(e)
 // run this in 500ms (1 second)
 
 
+var trainComPlayCom = function(){
+  genetic.live();
+  genetic.evolve();
+
+  if(genetic.evolutionIteration % (genetic.numberOfEvolutionsEachRound + 5) < genetic.numberOfEvolutionsEachRound){
+    genetic.evolutionIteration += 1;
+    drawProgressText(Math.round(100*(genetic.evolutionIteration % (genetic.numberOfEvolutionsEachRound + 5)) / (genetic.numberOfEvolutionsEachRound)));
+    setTimeout(trainComPlayCom, 1);
+  }else{
+    genetic.evolutionIteration += 1;
+
+    genetic.play();
+  }
+};
+
+
 var gameFinish = function(){
   localStorage.setItem('genetic', JSON.stringify(genetic));
   localStorage.setItem('geneticNeat', JSON.stringify(genetic.neat.export()));

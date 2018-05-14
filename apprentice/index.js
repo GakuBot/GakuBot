@@ -152,3 +152,26 @@ var roundReady = function(){
 
   document.getElementById("progress-button").addEventListener("click", startRound);
 }
+
+
+var trainHumanPlayHuman = function(){
+
+  if(genetic.evolutionIteration < genetic.numberOfEvolutionsBeforePlayerOnlyLearning){
+    genetic.live();
+    genetic.evolve();
+    genetic.evolutionIteration += 1;
+    drawProgressText( Math.round(100*(genetic.evolutionIteration / genetic.numberOfEvolutionsBeforePlayerOnlyLearning)));
+    let thisGenome = genetic;
+    setTimeout(trainHumanPlayHuman, 1);
+  }else if(genetic.evolutionIteration === genetic.numberOfEvolutionsBeforePlayerOnlyLearning){
+    roundReady();
+  }else{
+    genetic.evolutionIteration += 1;
+    genetic.genomeIndex = genetic.neat.population.length - 1;
+    genetic.iterateGeneration();
+    genetic.setInitialPositionValue();
+
+    genetic.prepareDuel();
+
+  }
+};

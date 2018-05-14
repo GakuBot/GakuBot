@@ -29,7 +29,8 @@ function Mimic(){
   noOfLosses: 0,
   noOfWins: 0,
   noOfGames: 0,
-  currentGen: 0,
+  currentRound: 0,
+  currentGeneration:0,
   currentPosition: [],
   currentOpponentPosition: [],
   trainingData: [],
@@ -47,7 +48,7 @@ function Mimic(){
 
     this.animationTimer = 0;
 
-    this.currentGen++;
+    this.currentRound++;
 
     this.userControlled = true;
 
@@ -55,7 +56,7 @@ function Mimic(){
 
   },
   duel: function(){
-    const isGenerationFinished = this.currentGen % 5 == 0;
+    const isGenerationFinished = this.currentRound % 5 == 0;
     const isMatchFinished = this.animationTimer >= this.timeLimit || this.finishLoop;
     const isStart = this.animationTimer <= this.startDelay;
 
@@ -262,14 +263,14 @@ function Mimic(){
         drawFinish(this.screenXOffset, this.screenYOffset, this.finishTimer, this.finishTimerDuration, this.gameResultWin, this.gameResultLoss);
       }
       drawFourCircles(this.screenXOffset, this.screenYOffset, xPosition + this.screenXOffset, yPosition + this.screenYOffset, xOpponentPosition + this.screenXOffset, yOpponentPosition + this.screenYOffset, userTarget[0], userTarget[1], this.playerCooldown, this.opponentCooldown);
-      drawGenerationText(this.currentGen);
+      drawGenerationText(this.currentGeneration);
     }else{
       clearCanvas();
       if(this.finishTimer > 0){
         drawFinish(this.screenXOffset, this.screenYOffset, this.finishTimer, this.finishTimerDuration, this.gameResultWin, this.gameResultLoss);
       }
       drawThreeCircles(this.screenXOffset, this.screenYOffset, xPosition + this.screenXOffset, yPosition + this.screenYOffset, xOpponentPosition + this.screenXOffset, yOpponentPosition + this.screenYOffset, this.playerCooldown, this.opponentCooldown);
-      drawGenerationText(this.currentGen);
+      drawGenerationText(this.currentGeneration);
     }
   },
   drawPregameOverlay: function(){
@@ -280,6 +281,8 @@ function Mimic(){
   evolve: function () {
     const learningRate = .3;
     const noOfRepetitions = 250;
+
+    this.currentGeneration++;
 
     for(let repetition = 0; repetition < noOfRepetitions; repetition++){
       for(let i in this.trainingData){
