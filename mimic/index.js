@@ -77,6 +77,17 @@ let pageNumberLimit = 4;
 //   });
 // }
 
+var trainDataPlayHuman = function(){
+  if(mimic.evolutionIteration < 1){
+    mimic.evolutionIteration++;
+    mimic.evolve();
+  }else{
+    mimic.evolve();
+    mimic.setInitialPositionValue();
+    mimic.prepareDuel();
+  }
+};
+
 document.getElementById("progress-button").addEventListener("click", function(e){
   e.preventDefault();
   if(pageNumber < pageNumberLimit){
@@ -118,16 +129,3 @@ var roundOver = function(){
   document.getElementById("post-game-results-won-bar").style.width = Math.round(100 * (noOfWins / (noOfWins + noOfLosses))) + "%";
   document.getElementById("post-game-results-lost-bar").style.width = Math.round(100 * (noOfLosses / (noOfWins + noOfLosses))) + "%";
 }
-
-
-
-var trainDataPlayHuman = function(){
-  if(mimic.evolutionIteration < 1){
-    mimic.evolutionIteration++;
-    mimic.evolve();
-  }else{
-    mimic.evolve();
-    mimic.setInitialPositionValue();
-    mimic.prepareDuel();
-  }
-};
