@@ -78,11 +78,10 @@ let pageNumberLimit = 4;
 // }
 
 var trainDataPlayHuman = function(){
-  if(mimic.evolutionIteration < 1){
-    mimic.evolutionIteration++;
+  if(mimic.currentRound < 1){
+    mimic.currentRound++;
     mimic.evolve();
   }else{
-    mimic.evolve();
     mimic.setInitialPositionValue();
     mimic.prepareDuel();
   }
