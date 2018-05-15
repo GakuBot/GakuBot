@@ -119,8 +119,8 @@ var roundOver = function(){
   localStorage.setItem('geneticEvolutionIteration', genetic.evolutionIteration);
 
   document.getElementById("continue-canvas-overlay").classList.remove("d-none");
-  document.getElementById("post-game-message-title").innerHTML = gameResult ? "Congratulations!" : "Unlucky!";
-  document.getElementById("post-game-message").innerHTML = gameResult ? "You won! Continue?" : "You lost! Play again?";
+  document.getElementById("post-game-message-title").innerHTML = noOfWins > noOfLosses ? "You're on top!" : "Keep going!";
+  document.getElementById("post-game-message").innerHTML = noOfWins > noOfLosses ? "You currently have more wins than losses: that's great! Keep playing to see the AI get better." : "You currently have more losses than wins. Keep playing to try and get the better of the AI.";
   document.getElementById("post-game-results-played").innerHTML =  "Played: " + noOfGames;
   document.getElementById("post-game-results-won").innerHTML =  "Won: " + Math.round((100 * (noOfWins / noOfGames))) + "% (" + noOfWins + "/" + noOfGames + ")";
   document.getElementById("post-game-results-lost").innerHTML = "Lost: " + Math.round((100 * (noOfLosses / noOfGames))) + "% (" + noOfLosses + "/" + noOfGames + ")";

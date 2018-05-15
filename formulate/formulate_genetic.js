@@ -135,6 +135,7 @@ function Genetic(){
       if(this.finishTimer === 0 && this.animationTimer >= this.timeLimit){
           this.gameResultWin = false;
           this.gameResultLoss = this.userControlled === true;
+          this.noOfLosses += this.userControlled ? 1 : 0;
           this.noOfGames += this.userControlled ? 1 : 0;
       }
       this.finishTimer++;
