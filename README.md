@@ -18,7 +18,7 @@
 
 ## How does it work?
 
-* This game uses the [Snyaptic](http://caza.la/synaptic/) and [Neataptic](https://wagenaartje.github.io/neataptic/) libraries for different types of supervised and unsupervised learning.
+* This game uses the [Synaptic](http://caza.la/synaptic/) and [Neataptic](https://wagenaartje.github.io/neataptic/) libraries for different types of supervised and unsupervised learning.
 
 ## More info
 
