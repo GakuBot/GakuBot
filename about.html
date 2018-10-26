@@ -163,29 +163,30 @@
         <p>This game works by using neural networks to make decisions in the game.</p><br>
         <p>In very basic terms, a neural network is a set of nodes which have inputs connected to them, and produce a certain output if the given inputs are high enough or low enough. This output can then either be connected to other nodes (hence, it is a network), or it can be the fina output of said network. For and introduction to how neural networks work, <a href="https://ujjwalkarn.me/2016/08/09/quick-intro-neural-networks/">read this.</a></p><br>
         <p>The neural networks in this game have their position and the opponent's position fed into them as inputs, and then output a direction in which to move.</p><br>
-        <p>There are two main ways in which we train these networks: supervised training and unsupervised training.</p><br>
-        <h3 id="unsupervised-learning">Unsupervised training</h3>
-        <p>Unsupervised training in this game works by letting the bot play the game by itself, and then appraising its performance.</p>
+        <p>There are two main ways in which we train these networks: machine learning training and reinforcement learning training.</p><br>
+        <h3 id="unsupervised-learning">Reinforcement learning training</h3>
+        <p>Reinforcement learning training in this game works by letting the bot play the game by itself, and then appraising its performance.</p>
         <p>To start, 50 bots are created, and are all randomly assigned a neural network structure. So, for example, some bots will move towards the objective, some will move away, and others will not move at all.</p>
         <p>The performance of these 50 bots is then scored, with bots that end up close to the objective getting a high score, and bots that end up far getting a low score.</p>
         <div class="m-auto w-100 my-3"><div class="w-75 text-center m-auto my-3" ><img class="w-100 my-3 mb-5" src="images/score.png" alt="How the bots are scored"></div></div>
         <p>Then, the horde of bots is evolved, with the highest scoring bots remaining unchanged, and then the rest of the next genetaion of bots are greated by taking two "parents" from the current generation, randomly mixing their networks together, and then adding this offspring to the next generation of bots. The whole next generation is then mutated, after which the cycle of testing, evaluation, selection, reproduction and mutation begins again.</p>
         <div class="m-auto w-100"><div class="m-auto w-75 text-center font-weight-light" ><img class="w-100" src="images/genetic.png" alt="The cycle of a genetic algorithm">Courtesy of <a href="https://blog.sicara.com/getting-started-genetic-algorithms-python-tutorial-81ffa1dd72f9">blog.sicara.com</a></div></div><br>
         <p>This way, the bots that perform best laregly persist through many generations, with the ones that perform poorly replaced by randomly mutated offspring of the previous generation. This evolution is called a genetic algorithm, and more can be found out about it <a href="https://blog.sicara.com/getting-started-genetic-algorithms-python-tutorial-81ffa1dd72f9">here.</a></p>
-        <h3 id="supervised-learning">Supervised training</h3>
-        <p>Like the unsupervised learning bots, Gakubot's supervised learning bots also use a neural network to make their decisions.</p>
-        <p>However, the way that this bot learns is markedly different to the unsupervised learning bot.</p>
+        <h3 id="supervised-learning">Machine learning training</h3>
+        <p>Like the reinforcement learning bots, Gakubot's machine learning bots also use a neural network to make their decisions.</p>
+        <p>However, the way that this bot learns is markedly different to the reinforcement learning bot.</p>
         <p>This bot observes the player playing 5 rounds of the game, and uses the player's actions as a guide for how to play the game.</p>
         <p>The bot first receives the input that the player recieves at any one moment (i.e. the player's location and the opponents location) and then is told to make a guess as to what it should do in that situation.</p>
         <p>Then, the bot's guess is compared against the action the playeractually carried out.</p>
         <p>If the guess is the same as the player's action, then no change of the network is required. However, if the guess is not close to the player's action, then the network will be altered in such a way as to nudge it closer to producing an answer similar to the player's action.</p>
         <p>This process is repeated over thousands of user actions, and slowly the nudges to improve the network make it start to produce output similar to the player's. This process is called <a href="https://brilliant.org/wiki/backpropagation/">backpropagation.</a></p><br>
         <h3>How they compare</h3>
-        <p>The pros and cons for both supervised and unsupervised learning for a task such as playing against a human competitor are numerous.</p>
-        <p>For unsupervised learning, the main strength is that there is a possibility that a bot will create a strategy that is much better than any that their human counterpart can devise, and be highly successful in the game.</p>
+        <p>The pros and cons for both machine and reinforcement learning for a task such as playing against a human competitor are numerous.</p>
+        <p>For reinforcement learning, the main strength is that since we only evaluate the bot on its success or failure, there is a possibility that a bot will create a strategy that is much better than any that their human counterpart can devise and be highly successful in the game.</p>
         <p>The main weakness is that this could take many iterations to happen, and due to the random nature of the mutation of the networks, there is the possibility that this will not occur at all.</p>
-        <p>For supervised learning, the main strength is that the learning can be done very cheaply and quickly, simply taking the user input as a blueprint for how to play.</p>
-        <p>The main weakness is that this puts an upper bound on the proficiency of the bot, only allowing it to be as good as the human facing it.</p><br>
+        <p>For machine learning, the main strength is that the learning can be done very cheaply and quickly (given that we already have data to learn from), simply taking the user input as a blueprint for how to play.</p>
+        <p>The main weakness is that this puts an upper bound on the proficiency of the bot, only allowing it to be as good as the human facing it.</p>
+        <p>For Gakubot, we can see that Mimic (Machine learning) gets to a proficient level very quickly, but never gets better than proficient. Formulate (Reinforcement learning) takes longer to become proficient, but keeps getting better as time goes on.</p><br>
 
       </div>
       <div id="why-is-it-interesting" class="card mb-4 p-3">
@@ -233,7 +234,7 @@
         <h1>What versions of GakuBot exist?</h1>
         <div id="gb-formulate" class="mb-4 p-3">
           <h2>GakuBot Formulate</h2>
-          <p>GakuBot Formulate is an <a href="#unsupervised-learning">unsupervised learning algorithmn</a>, whereby the computers plays against itself thousands of times in order to learn how to play.</p>
+          <p>GakuBot Formulate is an <a href="#unsupervised-learning">reinforcement learning algorithmn</a>, whereby the computers plays against itself thousands of times in order to learn how to play.</p>
           <img class="w-100" src="images/GBFormulate.png" alt="How GakuBot Formulate works">
           <p>After playing against itself thousands of times, it eventually plays 5 games against you, the player, before returning to another round of training and beginning the process again.</p>
           <p>Currently, each training sessions consists of 250 generations. Each generation, a population of 25 bots is tested, evaulated, and evolved.</p>
@@ -242,7 +243,7 @@
         </div>
         <div id="gb-apprentice" class="mb-4 p-3">
           <h2>GakuBot Apprentice</h2>
-          <p>GakuBot Apprentice is an <a href="#unsupervised-learning">unsupervised learning algorithmn</a>, whereby the computers plays against you, a human player, in order to learn how to play.</p>
+          <p>GakuBot Apprentice is an <a href="#unsupervised-learning">reinforcement learning algorithmn</a>, whereby the computers plays against you, a human player, in order to learn how to play.</p>
           <img class="w-100" src="images/GBApprentice.png" alt="How GakuBot Apprentice works">
           <p>To get to a reasonable degree of proficiency, GakuBot Apprentice plays 250 generations of games against itself. These generations consist of a population of 25 bots.</p>
           <p>After its initial training, GakuBot Apprentice's sole avenue for training is playing against the player, and scoring itself according to its performance in these games.</p>
@@ -253,7 +254,7 @@
         </div>
         <div id="gb-mimic" class="mb-4 p-3">
           <h2>GakuBot Mimic</h2>
-          <p>GakuBot Mimic is a <a href="#supervised-learning">supervised learning algorithmn</a>, whereby the computers plays against you, a human player, and then tries to mimic your past actions in the game.</p>
+          <p>GakuBot Mimic is a <a href="#supervised-learning">machine learning algorithmn</a>, whereby the computers plays against you, a human player, and then tries to mimic your past actions in the game.</p>
           <div class="w-50 m-auto"><img class="w-100" src="images/GBMimic.png" alt="How GakuBot Mimic works"></div>
           <p>GakuBot Mimic firstly plays 5 games against the player, and is laregly pretty terrible in them.</p>
           <p>During these 5 games, the computer observes the movements of the player, in relation to both the objective and the opponent.</p>
@@ -263,7 +264,7 @@
         </div>
         <div id="gb-exhibit" class="mb-4 p-3">
           <h2>GakuBot Exhibit</h2>
-          <p>GakuBot Exhibit is an <a href="#unsupervised-learning">unsupervised learning algorithmn</a>, whereby the computers plays against itself thousands of times in order to learn how to play.</p>
+          <p>GakuBot Exhibit is an <a href="#unsupervised-learning">reinforcement learning algorithmn</a>, whereby the computers plays against itself thousands of times in order to learn how to play.</p>
           <img class="w-100" src="images/GBExhibit.png" alt="How GakuBot Exhibit works">
           <p>After playing against itself thousands of times, it eventually plays five games against itself, which is visible to the user. The bots also evolve during these visible rounds. After the five rounds are completed, it returns to training and begins the process again.</p>
           <p>Currently, each training sessions consists of 250 generations. Each generation, a population of 25 bots is tested, evaulated, and evolved.</p>
