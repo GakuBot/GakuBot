@@ -179,7 +179,7 @@
         <p>The bot first receives the input that the player recieves at any one moment (i.e. the player's location and the opponents location) and then is told to make a guess as to what it should do in that situation.</p>
         <p>Then, the bot's guess is compared against the action the playeractually carried out.</p>
         <p>If the guess is the same as the player's action, then no change of the network is required. However, if the guess is not close to the player's action, then the network will be altered in such a way as to nudge it closer to producing an answer similar to the player's action.</p>
-        <p>This process is repeated over thousands of user actions, and slowly the nudges to improve the network make it start to produce output similar to the player's. This process is called <a href="https://brilliant.org/wiki/backpropagation/">backpropagation.</a></p><br>
+        <p>This process is repeated over thousands of user actions, and slowly the nudges to improve the network make it start to produce output similar to the player's. This training process hinges on a these collection of "nudges", formally called <a href="https://brilliant.org/wiki/backpropagation/">backpropagation.</a></p><br>
         <h3>How they compare</h3>
         <p>The pros and cons for both machine and reinforcement learning for a task such as playing against a human competitor are numerous.</p>
         <p>For reinforcement learning, the main strength is that since we only evaluate the bot on its success or failure, there is a possibility that a bot will create a strategy that is much better than any that their human counterpart can devise and be highly successful in the game.</p>
